@@ -1,4 +1,7 @@
 import axios from 'axios';
+import Constants from 'expo-constants';
+
+const { apiUrl, apiKey } = Constants.expoConfig.extra;
 
 export const identifyPlant = async (imageUri) => {
   let result = null;
@@ -13,7 +16,7 @@ export const identifyPlant = async (imageUri) => {
 
   try {
     const { data } = await axios.post(
-      `${process.env.API_URL}/all?api-key=${process.env.API_KEY}`,
+      `${apiUrl}/identify/all?api-key=${apiKey}`,
       formData,
       {
         headers: {

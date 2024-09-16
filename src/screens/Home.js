@@ -3,7 +3,7 @@ import { View, Image, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { StyledButton } from '../components/StyledButton';
 
-export default function HomeScreen({ navigation }) {
+export const Home = ({ navigation }) => {
   const handlePress = (actionType) => {
     navigation.navigate('Scanner', { actionType });
   };
@@ -21,4 +21,3 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
-
