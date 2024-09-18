@@ -1,7 +1,8 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useState, useRef } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
 import { Loader } from '../components/Loader';
+import { StyledButton } from './StyledButton';
 import { colors, globalStyles } from '../styles/global';
 
 export const Camera = ({ onCapture }) => {
@@ -13,9 +14,17 @@ export const Camera = ({ onCapture }) => {
 
   if (!permission.granted) {
     return (
-      <View style={globalStyles.container}>
-        <Text>Camera access is required</Text>
-        <StyledButton type="primary" onPress={requestPermission} title="Grant permission" />
+      <View style={[globalStyles.container]}>
+        <Text style={globalStyles.heading}>
+          This application requires camera access
+        </Text>
+        <View style={globalStyles.content}>
+          <Image
+            source={require('../../assets/camera-access.png')}
+            style={globalStyles.logo}
+          />
+        </View>
+        <StyledButton type="primary" onPress={requestPermission} title="Allow access" />
       </View>
     );
   }
@@ -35,7 +44,11 @@ export const Camera = ({ onCapture }) => {
 };
 
 const styles = StyleSheet.create({
-  camera: { flex: 1, justifyContent: 'flex-end', alignItems: 'center' },
+  camera: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
   cameraButton: {
     borderWidth: 5,
     borderColor: colors.primary,

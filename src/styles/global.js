@@ -25,14 +25,25 @@ const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.backgroundLight,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+    justifyContent: 'space-between'
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'space-evenly',
   },
   heading: {
     fontSize: fontSizes.xxl,
     fontWeight: '600',
     color: colors.secondary,
     textAlign: 'center',
-    marginTop: space.md,
+    marginBottom: space.md,
+  },
+  message: {
+    color: colors.secondary,
+    fontSize: fontSizes.md,
+    textAlign: 'center',
     marginBottom: space.md,
   },
   logo: {

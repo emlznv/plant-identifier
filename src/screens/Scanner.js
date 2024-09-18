@@ -1,10 +1,10 @@
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useEffect } from 'react';
-import { Text } from 'react-native';
 import { identifyPlant } from '../../api/plantIdentification';
 import { Loader } from '../components/Loader';
 import { Camera } from '../components/Camera';
 import { PlantOverview } from '../components/PlantOverview';
+import { Error } from '../components/Error';
 
 export const Scanner = ({ navigation, route }) => {
   const { actionType } = route.params;
@@ -36,6 +36,8 @@ export const Scanner = ({ navigation, route }) => {
     };
   };
 
+  const handleGoBack = () => navigation.navigate('Home');
+
   const handleIdentifyPlant = async (uri) => {
     if (!uri) {
       setError('Failed to capture photo. Please try again.');
@@ -56,7 +58,7 @@ export const Scanner = ({ navigation, route }) => {
   };
 
   if (loading) return <Loader message="Identifying plant..." />;
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Error message={error} onBack={handleGoBack} />
 
   return (
     <>
@@ -65,7 +67,7 @@ export const Scanner = ({ navigation, route }) => {
         <PlantOverview
           plantData={plantData}
           photoUri={photoUri}
-          onBack={() => navigation.navigate('Home')}
+          onBack={handleGoBack}
         />
       )}
     </>
