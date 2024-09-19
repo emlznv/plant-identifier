@@ -20,15 +20,16 @@ const space = {
     xs: 5,
     sm: 10,
     md: 20,
-    lg: 30
+    lg: 30,
+    xl: 40,
 }
 
 const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.backgroundLight,
-    paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingHorizontal: space.md,
+    paddingVertical: space.xl,
     justifyContent: 'space-between'
   },
   content: {

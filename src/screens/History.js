@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { useHistory } from '../hooks/useHistory';
 import { isToday, isThisWeek, isThisMonth } from 'date-fns';
-import { globalStyles } from '../styles/global';
+import { space } from '../styles/global';
 import { colors } from '../styles/global';
 import { StyledButton } from '../components/StyledButton';
 import { Loader } from '../components/Loader';
@@ -32,18 +32,20 @@ export const History = () => {
   if (error) return <Error message={error} />
 
   return (
-    <View style={[globalStyles.container, styles.container]}>
+    <ScrollView contentContainerStyle={styles.contentContainer}>
       <HistorySection title="Today" data={todayHistory} />
       <HistorySection title="This Week" data={thisWeekHistory} />
       <HistorySection title="This Month" data={thisMonthHistory} />
       <StyledButton type="primary" title="Clear" onPress={clearHistory} />
-    </View>
+    </ScrollView>
   );
 };
 
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
+    flexGrow: 1,
     backgroundColor: colors.secondary,
+    padding: space.md,
   },
 });
