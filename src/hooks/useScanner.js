@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import { identifyPlant } from '../../api/plantIdentification';
+import { useHistory } from './useHistory';
 
 export const useScanner = (actionType, goBack) => {
   const [photoUri, setPhotoUri] = useState('');
   const [plantData, setPlantData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const { addToHistory } = useHistory();
 
   useEffect(() => {
     if (actionType === 'upload') {
@@ -38,7 +40,19 @@ export const useScanner = (actionType, goBack) => {
       setPhotoUri(uri);
       setLoading(true);
       const { data, error } = await identifyPlant(uri);
-      data && setPlantData(data.results[0]);
+      
+      if (data) {
+        const plantMatch = data.results[0];
+        setPlantData(plantMatch);
+
+        addToHistory({
+            name: plantMatch.species.commonNames[0],
+            scientificName: plantMatch.species.scientificNameWithoutAuthor,
+            family: plantMatch.species.family.scientificNameWithoutAuthor,
+            photoUri: uri,
+            timestamp: new Date().toISOString(),
+        });
+      }
       error && setError(error);
     } catch {
       setError('Failed to identify plant. Please try again.');
