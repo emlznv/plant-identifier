@@ -58,7 +58,7 @@ export const Scanner = ({ navigation, route }) => {
   };
 
   if (loading) return <Loader message="Identifying plant..." />;
-  if (error) return <Error message={error} onBack={handleGoBack} />
+  if (error) return <Error message={error} onBack={handleGoBack} />;
 
   return (
     <>

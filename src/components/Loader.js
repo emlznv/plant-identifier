@@ -11,7 +11,7 @@ export const Loader = ({ message }) => {
           color={colors.primary}
           size="large"  
         />
-        <Text style={globalStyles.message}>
+        <Text style={globalStyles.infoMessage}>
           {message}
         </Text>
     </View>

@@ -14,12 +14,12 @@ export const Camera = ({ onCapture }) => {
 
   if (!permission.granted) {
     return (
-      <View style={[globalStyles.container, { justifyContent: 'center' }]}>
+      <View style={[globalStyles.container, styles.container]}>
           <Image
             source={require('../../assets/camera-access.png')}
             style={globalStyles.image}
           />
-          <Text style={globalStyles.message}>
+          <Text style={globalStyles.infoMessage}>
             This application requires camera access:
           </Text>
         <StyledButton type="primary" onPress={requestPermission} title="Allow access" />
@@ -42,6 +42,9 @@ export const Camera = ({ onCapture }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+  },
   camera: {
     flex: 1,
     justifyContent: 'flex-end',

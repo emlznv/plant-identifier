@@ -11,7 +11,7 @@ export const Error = ({ message, onBack }) => {
         source={require('../../assets/error.png')}
         style={globalStyles.image}
       />
-      <Text style={globalStyles.message}>
+      <Text style={globalStyles.infoMessage}>
         {message}
       </Text>
       <StyledButton type="secondary" title="Back to home" onPress={onBack} />

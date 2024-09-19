@@ -38,13 +38,17 @@ const globalStyles = StyleSheet.create({
     fontWeight: '600',
     color: colors.secondary,
     textAlign: 'center',
-    marginBottom: space.md,
   },
-  message: {
+  infoMessage: {
     color: colors.secondary,
     fontSize: fontSizes.md,
     textAlign: 'center',
-    marginBottom: space.md,
+    marginVertical: space.md,
+  },
+  text: {
+    color: colors.secondary,
+    fontSize: fontSizes.md,
+    textAlign: 'center',
   },
   image: {
     width: 240, 
@@ -53,34 +57,6 @@ const globalStyles = StyleSheet.create({
     marginTop: space.md,
     marginBottom: space.md,
   },
-  buttonPrimary: {
-    backgroundColor: colors.primary,
-    padding: 17,
-    margin: 15,
-    alignItems: 'center',
-    borderRadius: 120,
-    width: 260,
-    alignSelf: 'center',
-  },
-  buttonTextPrimary: {
-    color: colors.secondary,
-    fontSize: fontSizes.md,
-  },
-  buttonSecondary: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: colors.primary,
-    padding: 17,
-    margin: 15,
-    alignItems: 'center',
-    borderRadius: 120,
-    width: 260,
-    alignSelf: 'center',
-  },
-  buttonTextSecondary: {
-    color: colors.secondary,
-    fontSize: fontSizes.md,
-  },
 });
 
-export { globalStyles, colors };
+export { globalStyles, colors, fontSizes, space };

@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { StyledButton } from './StyledButton';
-import { globalStyles, colors } from '../styles/global';
+import { globalStyles, colors, space } from '../styles/global';
 
 export const PlantOverview = ({ plantData, photoUri, onBack }) => {
     const commonName = plantData.species.commonNames[0];
@@ -12,18 +12,18 @@ export const PlantOverview = ({ plantData, photoUri, onBack }) => {
                 {plantData.species.scientificNameWithoutAuthor}
             </Text>
             {plantFamily && (
-                <Text style={globalStyles.message}>
+                <Text style={[globalStyles.text, styles.text]}>
                     Part of the {plantFamily} family
                 </Text>
             )}
-            <View style={[globalStyles.content]}>
+            <View style={globalStyles.content}>
                 <Image source={{ uri: photoUri }} style={styles.plantImage} />
                 {commonName && (
-                    <View style={{ alignItems: 'center' }}>
-                        <Text style={globalStyles.message}>
+                    <View style={styles.nameContainer}>
+                        <Text style={[globalStyles.text, styles.text]}>
                             Commonly known as:
                         </Text>
-                        <Text style={{ color: colors.secondary, fontSize: 22, fontWeight: 600 }}>
+                        <Text style={globalStyles.heading}>
                             {commonName}
                         </Text>
                     </View>
@@ -43,5 +43,11 @@ const styles = StyleSheet.create({
       borderColor: colors.primary,
       borderRadius: 120,
       alignSelf: 'center',
+    },
+    text: {
+      marginVertical: space.sm,
+    },
+    nameContainer: {
+      alignItems: 'center',
     },
 });
