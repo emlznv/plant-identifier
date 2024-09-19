@@ -37,30 +37,30 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       backgroundColor: colors.secondary,
       borderRadius: 15,
-      padding: 15,
+      padding: space.md,
       borderWidth: 2,
       borderColor: colors.primary,
-      marginVertical: 10,
+      marginVertical: space.sm,
       alignItems: 'center',
     },
     name: {
       color: colors.backgroundLight,
       fontWeight: '500',
       fontSize: fontSizes.md,
-      marginBottom: 5,
+      marginBottom: space.xs,
     },
     scientificName: {
       color: colors.backgroundLight,
       fontSize: fontSizes.sm
     },
     date: {
-      color: '#8c8b88',
+      color: colors.fade,
     },
     image: {
       width: 70,
       height: 70,
       borderRadius: 120,
-      marginRight: 20,
+      marginRight: space.md,
     },
     timeGroup: {
       fontWeight: '500',

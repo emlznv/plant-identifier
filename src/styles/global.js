@@ -5,6 +5,7 @@ const colors = {
   backgroundDark: '#33372C',
   primary: '#FF885B',
   secondary: '#FFE5CF',
+  fade: '#8c8b88',
 };
 
 const fontSizes = {
@@ -16,6 +17,7 @@ const fontSizes = {
 }
 
 const space = {
+    xs: 5,
     sm: 10,
     md: 20,
     lg: 30

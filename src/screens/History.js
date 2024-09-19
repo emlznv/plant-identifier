@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useHistory } from '../hooks/useHistory';
 import { isToday, isThisWeek, isThisMonth } from 'date-fns';
 import { globalStyles } from '../styles/global';
@@ -32,7 +32,7 @@ export const History = () => {
   if (error) return <Error message={error} />
 
   return (
-    <View style={[globalStyles.container, { backgroundColor: colors.secondary }]}>
+    <View style={[globalStyles.container, styles.container]}>
       <HistorySection title="Today" data={todayHistory} />
       <HistorySection title="This Week" data={thisWeekHistory} />
       <HistorySection title="This Month" data={thisMonthHistory} />
@@ -40,3 +40,10 @@ export const History = () => {
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.secondary,
+  },
+});
