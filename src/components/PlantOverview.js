@@ -12,15 +12,15 @@ export const PlantOverview = ({ plantData, photoUri, onBack }) => {
                 {plantData.species.scientificNameWithoutAuthor}
             </Text>
             {plantFamily && (
-                <Text style={{ color: colors.secondary, textAlign: 'center' }}>
+                <Text style={globalStyles.message}>
                     Part of the {plantFamily} family
                 </Text>
             )}
-            <View style={[globalStyles.content, { alignItems: 'center' }]}>
+            <View style={[globalStyles.content]}>
                 <Image source={{ uri: photoUri }} style={styles.plantImage} />
                 {commonName && (
                     <View style={{ alignItems: 'center' }}>
-                        <Text style={{ color: colors.secondary, fontSize: 15, marginBottom: 10 }}>
+                        <Text style={globalStyles.message}>
                             Commonly known as:
                         </Text>
                         <Text style={{ color: colors.secondary, fontSize: 22, fontWeight: 600 }}>

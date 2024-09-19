@@ -46,7 +46,7 @@ const globalStyles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: space.md,
   },
-  logo: {
+  image: {
     width: 240, 
     height: 240,
     alignSelf: 'center',

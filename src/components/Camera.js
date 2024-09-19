@@ -14,16 +14,14 @@ export const Camera = ({ onCapture }) => {
 
   if (!permission.granted) {
     return (
-      <View style={[globalStyles.container]}>
-        <Text style={globalStyles.heading}>
-          This application requires camera access
-        </Text>
-        <View style={globalStyles.content}>
+      <View style={[globalStyles.container, { justifyContent: 'center' }]}>
           <Image
             source={require('../../assets/camera-access.png')}
-            style={globalStyles.logo}
+            style={globalStyles.image}
           />
-        </View>
+          <Text style={globalStyles.message}>
+            This application requires camera access:
+          </Text>
         <StyledButton type="primary" onPress={requestPermission} title="Allow access" />
       </View>
     );

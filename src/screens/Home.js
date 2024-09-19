@@ -16,7 +16,7 @@ export const Home = ({ navigation }) => {
       <View style={globalStyles.content}>
         <Image
           source={require('../../assets/logo.png')}
-          style={globalStyles.logo}
+          style={globalStyles.image}
         />
       </View>
       <StyledButton type="primary" title="Scan plant" onPress={() => handlePress('scan')} />

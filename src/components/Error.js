@@ -6,28 +6,22 @@ import { StyledButton } from './StyledButton';
 
 export const Error = ({ message, onBack }) => {
   return (
-    <View style={globalStyles.container}>
-        <Text style={globalStyles.heading}>
-           {message}
-        </Text>
-        <View style={globalStyles.content}>
-          <Image
-            source={require('../../assets/error.png')}
-            style={styles.errorImage}
-          />
-      </View>
+    <View style={[globalStyles.container, styles.container]}>
+      <Image
+        source={require('../../assets/error.png')}
+        style={globalStyles.image}
+      />
+      <Text style={globalStyles.message}>
+        {message}
+      </Text>
       <StyledButton type="secondary" title="Back to home" onPress={onBack} />
     </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center'
-  },
-  errorImage: {
-    width: 270,
-    height: 270,
-    alignSelf: 'center',
   },
 });
