@@ -5,13 +5,13 @@ import { colors, globalStyles } from '../styles/global';
 
 export const Loader = ({ message, customColors }) => {
   return (
-    <View style={[globalStyles.container, styles.container, customColors.loader]}>
+    <View style={[globalStyles.container, styles.container, customColors?.loader]}>
         <ActivityIndicator
           style={styles.loadingSpinner}
           color={colors.primary}
           size="large"  
         />
-        <Text style={[globalStyles.infoMessage, customColors.loaderText]}>
+        <Text style={[globalStyles.infoMessage, customColors?.loaderText]}>
           {message}
         </Text>
     </View>
