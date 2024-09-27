@@ -3,15 +3,15 @@ import { StyleSheet } from 'react-native';
 import { Text, View, ActivityIndicator } from 'react-native';
 import { colors, globalStyles } from '../styles/global';
 
-export const Loader = ({ message, bgColor }) => {
+export const Loader = ({ message, customColors }) => {
   return (
-    <View style={[globalStyles.container, styles.container, bgColor]}>
+    <View style={[globalStyles.container, styles.container, customColors.loader]}>
         <ActivityIndicator
           style={styles.loadingSpinner}
           color={colors.primary}
           size="large"  
         />
-        <Text style={globalStyles.infoMessage}>
+        <Text style={[globalStyles.infoMessage, customColors.loaderText]}>
           {message}
         </Text>
     </View>

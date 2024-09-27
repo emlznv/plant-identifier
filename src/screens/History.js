@@ -24,7 +24,7 @@ export const History = () => {
     return history.filter((entry) => isThisMonth(new Date(entry.timestamp)) && !isThisWeek(new Date(entry.timestamp)));
   }, [history]);
 
-  if (loading) return <Loader message="Loading history..." bgColor={{ backgroundColor: colors.secondary }} />
+  if (loading) return <Loader message="Loading history..." customColors={{ loader: styles.loader, loaderText: styles.loaderText }} />
   if (error) return <Error message={error} />
 
   return (
@@ -66,5 +66,11 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.sm,
     color: colors.primary,
     textAlign: 'center',
-  }
+  },
+  loader: {
+    backgroundColor: colors.secondary,
+  },
+  loaderText: {
+    color: colors.primary,
+  },
 });
