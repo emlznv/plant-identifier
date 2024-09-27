@@ -36,15 +36,6 @@ export default {
       extra: {
         apiUrl: process.env.API_URL,
         apiKey: process.env.API_KEY,
-        eas: {
-          projectId: "aa8a76bf-ec21-42a5-850e-bab3a937cb6c",
-        },
       },
-      updates: {
-        url: "https://u.expo.dev/aa8a76bf-ec21-42a5-850e-bab3a937cb6c",
-      },
-      runtimeVersion: {
-        policy: "appVersion",
-      }
     }
 }
