@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import { identifyPlant } from '../../api/plantIdentification';
+import { identifyPlant } from '../api/plantIdentification';
 import { useStorage } from '../context/context';
 
 export const useScanner = (actionType, goBack) => {
