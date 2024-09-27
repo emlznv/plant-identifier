@@ -6,12 +6,12 @@ import { useScanner } from '../hooks/useScanner';
 
 export const Scanner = ({ navigation, route }) => {
   const { actionType } = route.params;
+  const handleGoBack = () => navigation.navigate('Home');
+
   const { photoUri, plantData, loading, error, handleIdentifyPlant } = useScanner(actionType, handleGoBack);
 
   const showCamera = !photoUri && !plantData && actionType === 'scan';
   const showPlantOverview = photoUri && plantData;
-
-  const handleGoBack = () => navigation.navigate('Home');
 
   if (loading) return <Loader message="Identifying plant..." />;
   if (error) return <Error message={error} onBack={handleGoBack} />;

@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 import { Text, View, ActivityIndicator } from 'react-native';
 import { colors, globalStyles } from '../styles/global';
 
-export const Loader = ({ message }) => {
+export const Loader = ({ message, bgColor }) => {
   return (
-    <View style={[globalStyles.container, styles.container]}>
+    <View style={[globalStyles.container, styles.container, bgColor]}>
         <ActivityIndicator
           style={styles.loadingSpinner}
           color={colors.primary}
@@ -20,7 +20,8 @@ export const Loader = ({ message }) => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center'
+    flex: 1,
+    justifyContent: 'center',
   },
   loadingSpinner: {
     marginBottom: 50,

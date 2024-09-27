@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import { identifyPlant } from '../../api/plantIdentification';
-import { useHistory } from './useHistory';
+import { useStorage } from '../context/context';
 
 export const useScanner = (actionType, goBack) => {
   const [photoUri, setPhotoUri] = useState('');
   const [plantData, setPlantData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { addToHistory } = useHistory();
+  const { addToHistory } = useStorage(); 
 
   useEffect(() => {
     if (actionType === 'upload') {

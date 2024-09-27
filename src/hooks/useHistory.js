@@ -18,12 +18,12 @@ export const useHistory = () => {
     try {
       const storedHistory = await AsyncStorage.getItem(STORAGE_KEY);
       if (storedHistory !== null) {
-        setHistory(JSON.parse(storedHistory));
+        setHistory([...JSON.parse(storedHistory)]);
       }
     } catch (error) {
       setError('Failed to load history. Please try again.')
     } finally {
-        setLoading(false);
+      setLoading(false);
     };
   };
 
@@ -31,23 +31,26 @@ export const useHistory = () => {
     try {
       const storedHistory = await AsyncStorage.getItem(STORAGE_KEY);
       const currentHistory = storedHistory ? JSON.parse(storedHistory) : [];
-        
+  
       const updatedHistory = [newEntry, ...currentHistory].slice(0, MAX_HISTORY_ITEMS);
-      setHistory(updatedHistory);
-
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedHistory));
+      setHistory([...updatedHistory]);
     } catch (error) {
       setError('An error occured. Please try again.');
     }
   };
 
   const clearHistory = async () => {
+    setLoading(true);
     try {
-        await AsyncStorage.clear();
+      await AsyncStorage.removeItem(STORAGE_KEY);
+      setHistory([]);
     } catch (error) {
-        setError('Failed to clear history. Please try again.')
+      setError('Failed to clear history. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  return { history, loading, error, addToHistory, fetchHistory, clearHistory };
+  return { history, loading, error, addToHistory, clearHistory };
 };
