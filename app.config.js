@@ -42,5 +42,13 @@ export default {
           projectId: "08307045-fba1-4a53-9b3c-47d9e35143d4",
         }
       },
+      updates: {
+        url: "https://u.expo.dev/08307045-fba1-4a53-9b3c-47d9e35143d4"
+      },
+      android: {
+        runtimeVersion: {
+          policy: "appVersion"
+        }
+      }
     }
 }
