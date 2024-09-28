@@ -29,7 +29,7 @@ This React Native app, built with Expo, allows users to scan or upload images of
 
 6. Create a free API key at [Pl@ntNet API](https://my.plantnet.org/doc/openapi)
 
-7. Copy and paste the generated API key to `EXPO_PUBLIC_API_KEY` in the `.env` file
+7. Copy and paste the generated API key to `EXPO_PUBLIC_API_KEY` in the `.env.local` file
 
 8. Run the project
 ```bash
