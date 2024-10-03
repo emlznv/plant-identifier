@@ -1,7 +1,8 @@
 import axios from 'axios';
 import Constants from 'expo-constants';
 
-const { apiUrl, apiKey } = Constants.expoConfig.extra;
+const apiKey = Constants.expoConfig.extra.apiKey ?? process.env.EXPO_PUBLIC_API_KEY;
+const apiUrl = Constants.expoConfig.extra.apiUrl ?? process.env.EXPO_PUBLIC_API_URL;
 
 export const identifyPlant = async (imageUri) => {
   let result = null;

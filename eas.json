@@ -1,0 +1,34 @@
+{
+    "cli": {
+      "version": ">= 12.5.1",
+      "appVersionSource": "remote"
+    },
+    "build": {
+      "development": {
+        "developmentClient": true,
+        "distribution": "internal",
+        "env": {
+          "EXPO_PUBLIC_API_KEY": "@emlznv/EXPO_PUBLIC_API_KEY",
+          "EXPO_PUBLIC_API_URL": "@emlznv/EXPO_PUBLIC_API_URL"
+        }
+      },
+      "preview": {
+        "distribution": "internal",
+        "env": {
+          "EXPO_PUBLIC_API_KEY": "@emlznv/EXPO_PUBLIC_API_KEY",
+          "EXPO_PUBLIC_API_URL": "@emlznv/EXPO_PUBLIC_API_URL"
+        }
+      },
+      "production": {
+        "autoIncrement": true,
+          "env": {
+          "EXPO_PUBLIC_API_KEY": "@emlznv/EXPO_PUBLIC_API_KEY",
+          "EXPO_PUBLIC_API_URL": "@emlznv/EXPO_PUBLIC_API_URL"
+        }
+      }
+    },
+    "submit": {
+      "production": {}
+    }
+  }
+  

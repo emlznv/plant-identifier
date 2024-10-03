@@ -5,6 +5,7 @@ export default {
       name: "PlantIdentifier",
       slug: "PlantIdentifier",
       version: "1.0.0",
+      owner: "emlznv",
       orientation: "portrait",
       icon: "./assets/icon.png",
       userInterfaceStyle: "light",
@@ -17,9 +18,13 @@ export default {
         supportsTablet: true
       },
       android: {
+        package: "com.emlznv.plantidentifier",
         adaptiveIcon: {
           foregroundImage: "./assets/adaptive-icon.png",
           backgroundColor: "#ffffff"
+        },
+        runtimeVersion: {
+          policy: "appVersion"
         }
       },
       web: {
@@ -34,8 +39,14 @@ export default {
         ]
       ],
       extra: {
-        apiUrl: process.env.API_URL,
-        apiKey: process.env.API_KEY,
+        apiUrl: process.env.EXPO_PUBLIC_API_URL,
+        apiKey: process.env.EXPO_PUBLIC_API_KEY,
+        eas: {
+          projectId: "08307045-fba1-4a53-9b3c-47d9e35143d4",
+        }
+      },
+      updates: {
+        url: "https://u.expo.dev/08307045-fba1-4a53-9b3c-47d9e35143d4"
       },
     }
 }
