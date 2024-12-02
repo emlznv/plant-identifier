@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, ScrollView, TouchableOpacity, Text, View } from 'react-native';
-import { startOfDay, subDays, subMonths, startOfMonth, endOfMonth, isWithinInterval } from 'date-fns';
+import { startOfDay, subDays, subMonths, endOfDay, startOfMonth, endOfMonth, isWithinInterval, isToday } from 'date-fns';
+
 import { toZonedTime } from 'date-fns-tz';
 import { fontSizes, globalStyles, space } from '../styles/global';
 import { colors } from '../styles/global';
@@ -18,40 +19,36 @@ export const History = () => {
     const utcDate = new Date(timestamp);
     return toZonedTime(utcDate, localTimezone);
   };
-  
+
   const todayHistory = useMemo(() => {
-    const today = new Date();
-    const startOfToday = startOfDay(today);
-    return history.filter((entry) => utcTimestampToLocalDate(entry.timestamp) >= startOfToday);
+    return history.filter((entry) => isToday(utcTimestampToLocalDate(entry.timestamp)));
   }, [history]);
 
   const lastWeekHistory = useMemo(() => {
-    const today = new Date();
-    const lastWeekStart = subDays(today, 7);
-    const lastWeekEnd = subDays(today, 1);
-
-    return history.filter((entry) =>
-      isWithinInterval(utcTimestampToLocalDate(entry.timestamp), { start: lastWeekStart, end: lastWeekEnd })
-    );
+    return history.filter((entry) => {
+      const entryDate = utcTimestampToLocalDate(entry.timestamp);
+      return isWithinInterval(entryDate, {
+        start: startOfDay(subDays(new Date(), 7)),
+        end: endOfDay(subDays(new Date(), 1))
+      })
+    });
   }, [history]);
 
   const lastMonthHistory = useMemo(() => {
-    const today = new Date();
-    const lastMonthStart = startOfMonth(subMonths(today, 1));
-    const lastMonthEnd = endOfMonth(lastMonthStart);
-    const lastWeekStart = subDays(today, 7);
-
     return history.filter((entry) => {
       const entryDate = utcTimestampToLocalDate(entry.timestamp);
-      return isWithinInterval(entryDate, { start: lastMonthStart, end: lastMonthEnd }) &&
-            !isWithinInterval(entryDate, { start: lastWeekStart, end: today });
+      return isWithinInterval(entryDate, { 
+        start: startOfMonth(subMonths(new Date(), 1)),
+        end: endOfMonth(subMonths(new Date(), 1))
+      });
     });
   }, [history]);
 
   const olderHistory = useMemo(() => {
-    const today = new Date();
-    const lastMonthStart = startOfMonth(subMonths(today, 1));
-    return history.filter((entry) => utcTimestampToLocalDate(entry.timestamp) < lastMonthStart);
+    return history.filter((entry) => {
+      const entryDate = utcTimestampToLocalDate(entry.timestamp);
+      return entryDate < startOfMonth(subMonths(new Date(), 1));
+    });
   }, [history]);
 
 
