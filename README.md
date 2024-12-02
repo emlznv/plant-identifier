@@ -17,7 +17,7 @@ This React Native app, built with Expo, allows users to scan or upload images of
 3. Go to the project directory
 
 ```bash
-  cd PlantIdentifier
+  cd plant-identifier
 ```
 
 4. Install dependencies
