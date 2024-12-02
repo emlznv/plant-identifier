@@ -1,6 +1,8 @@
 ## Overview 
 This React Native app, built with Expo, allows users to scan or upload images of plants using an image recognition API and keeps a history of the most recently scanned items.
 
+<img src="https://github.com/user-attachments/assets/3bc5dbc6-cb3f-436f-9790-edc3920f74f3" width="100%">
+
 ## Run Locally using Expo Go
 
 1. Clone the project
