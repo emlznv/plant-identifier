@@ -9,24 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "1.23.1",
-    "@react-navigation/native": "^6.1.18",
-    "@react-navigation/stack": "^6.4.1",
-    "axios": "^1.7.7",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-navigation/native": "^7.0.0",
+    "@react-navigation/stack": "^7.0.0",
+    "axios": "^1.8.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
-    "dotenv": "^16.4.5",
-    "expo": "^52.0.11",
-    "expo-camera": "~16.0.7",
-    "expo-constants": "~17.0.3",
-    "expo-image-picker": "~16.0.3",
-    "expo-status-bar": "~2.0.0",
-    "expo-updates": "~0.26.9",
-    "react": "18.3.1",
-    "react-native": "0.76.3"
+    "expo": "^55.0.0",
+    "expo-camera": "~55.0.16",
+    "expo-constants": "~55.0.15",
+    "expo-image-picker": "~55.0.19",
+    "expo-status-bar": "~55.0.5",
+    "expo-updates": "~55.0.21",
+    "react": "19.2.0",
+    "react-native": "0.83.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.25.0"
   },
   "private": true
 }
